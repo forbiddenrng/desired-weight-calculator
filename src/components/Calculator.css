@@ -1,0 +1,12 @@
+:root {
+  --width: 300px;
+}
+.calculator {
+  width: var(--width);
+  margin: 40px auto 0 auto;
+}
+@media(min-width: 768px) {
+  :root {
+    --width: 600px; 
+  }
+}
