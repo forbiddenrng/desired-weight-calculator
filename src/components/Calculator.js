@@ -1,6 +1,7 @@
 import React from 'react';
 import './Calculator.css';
 import Input from "./Input";
+import DateInput from "./DateInput";
 class Calculator extends React.Component {
   minAndMaxValues = {
     weightMin: 30,
@@ -35,6 +36,8 @@ class Calculator extends React.Component {
         <Input name="initWeight" text="Initial weight" unit="kg" min={this.minAndMaxValues.weightMin} max={this.minAndMaxValues.weightMax} value={this.state.initWeight} onChange={this.handleInputChange} result={this.state.initWeight} />
         <Input name="desiredWeight" text="Desired weight" unit="kg" min={this.minAndMaxValues.weightMin} max={this.minAndMaxValues.weightMax} value={this.state.desiredWeight} onChange={this.handleInputChange} result={this.state.desiredWeight} />
         <Input name="height" text="Height" unit="cm" min={this.minAndMaxValues.heightMin} max={this.minAndMaxValues.heightMax} value={this.state.height} onChange={this.handleInputChange} result={this.state.height} />
+        <DateInput title="Start date:" />
+        <DateInput title="Finish date:" />
       </div>
     );
   }

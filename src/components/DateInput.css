@@ -1,0 +1,9 @@
+.date_form{
+  display: flex;
+
+}
+.date_input {
+  flex-basis: 100%;
+  margin-left: 30px;
+  margin-top: 20px;
+}
