@@ -6,7 +6,7 @@ const Input = (props) => {
       <p className="input_title">{props.text}</p>
       <div className="form">
         <input name={props.name} value={props.value} min={props.min} max={props.max} type="range" className="input" onChange={props.onChange}></input>
-        <p className="result">x {props.unit}</p>
+        <p className="result">{`${props.result} ${props.unit}`}</p>
       </div>
     </div>
   );

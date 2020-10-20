@@ -32,9 +32,9 @@ class Calculator extends React.Component {
   render() {
     return (
       <div className="calculator">
-        <Input name="initWeight" text="Initial weight" unit="kg" min={this.minAndMaxValues.weightMin} max={this.minAndMaxValues.weightMax} value={this.state.initWeight} onChange={this.handleInputChange} />
-        <Input name="desiredWeight" text="Desired weight" unit="kg" min={this.minAndMaxValues.weightMin} max={this.minAndMaxValues.weightMax} value={this.state.desiredWeight} onChange={this.handleInputChange} />
-        <Input name="height" text="Height" unit="cm" min={this.minAndMaxValues.heightMin} max={this.minAndMaxValues.heightMax} value={this.state.height} onChange={this.handleInputChange} />
+        <Input name="initWeight" text="Initial weight" unit="kg" min={this.minAndMaxValues.weightMin} max={this.minAndMaxValues.weightMax} value={this.state.initWeight} onChange={this.handleInputChange} result={this.state.initWeight} />
+        <Input name="desiredWeight" text="Desired weight" unit="kg" min={this.minAndMaxValues.weightMin} max={this.minAndMaxValues.weightMax} value={this.state.desiredWeight} onChange={this.handleInputChange} result={this.state.desiredWeight} />
+        <Input name="height" text="Height" unit="cm" min={this.minAndMaxValues.heightMin} max={this.minAndMaxValues.heightMax} value={this.state.height} onChange={this.handleInputChange} result={this.state.height} />
       </div>
     );
   }
