@@ -2,6 +2,7 @@ import React from 'react';
 import './Calculator.css';
 import Input from "./Input";
 import DateInput from "./DateInput";
+import Button from "./Button";
 class Calculator extends React.Component {
   minAndMaxValues = {
     weightMin: 30,
@@ -64,6 +65,7 @@ class Calculator extends React.Component {
 
         <DateInput min={this.state.minStartDate} name="startDate" onChange={this.handleDateChange} value={this.state.startDate} title="Start date:" />
         <DateInput min={this.state.minEndDate} name="endDate" onChange={this.handleDateChange} value={this.state.endDate} title="Finish date:" />
+        <Button />
       </div>
     );
   }
