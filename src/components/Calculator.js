@@ -3,6 +3,8 @@ import './Calculator.css';
 import Input from "./Input";
 import DateInput from "./DateInput";
 import Button from "./Button";
+import Result from "./Result";
+import Error from "./Error";
 class Calculator extends React.Component {
   minAndMaxValues = {
     weightMin: 30,
@@ -18,8 +20,9 @@ class Calculator extends React.Component {
     minStartDate: 0,
     endDate: 0,
     minEndDate: 0,
+    error: false,
   }
-
+  counter = 0;
   handleInputChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
@@ -54,8 +57,37 @@ class Calculator extends React.Component {
         endDate: e.target.value
       })
     }
-
   }
+
+  getDateDifference = (dateFirst, dateSecond) => {
+    const firstDate = new Date(dateFirst).getTime();
+    const secondDate = new Date(dateSecond).getTime();
+    console.log((secondDate - firstDate) / 1000)
+  }
+
+  count = () => {
+    this.setState({
+      error: false
+    })
+    const data = {
+      initWeight: this.state.initWeight,
+      desiredWeight: this.state.desiredWeight,
+      height: this.state.height,
+      startDate: this.state.startDate,
+      endDate: this.state.endDate,
+    }
+
+    if (data.initWeight === data.desiredWeight || data.startDate === data.endDate) {
+      return this.setState({
+        error: true
+      })
+    }
+    const dateDifference = this.getDateDifference(data.startDate, data.endDate)
+
+
+    return true
+  }
+
   render() {
     return (
       <div className="calculator">
@@ -65,7 +97,8 @@ class Calculator extends React.Component {
 
         <DateInput min={this.state.minStartDate} name="startDate" onChange={this.handleDateChange} value={this.state.startDate} title="Start date:" />
         <DateInput min={this.state.minEndDate} name="endDate" onChange={this.handleDateChange} value={this.state.endDate} title="Finish date:" />
-        <Button />
+        <Button onClick={this.count} />
+        {this.state.error ? <Error /> : null}
       </div>
     );
   }

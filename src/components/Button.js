@@ -1,9 +1,9 @@
 import React from 'react';
 import "./Button.css"
-const Button = () => {
+const Button = (props) => {
   return (
     <div className="button_form">
-      <button>Count</button>
+      <button onClick={props.onClick}>Count</button>
     </div>
   );
 }
