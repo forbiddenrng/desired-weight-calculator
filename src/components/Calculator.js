@@ -23,10 +23,17 @@ class Calculator extends React.Component {
     error: false,
     result: false,
   }
+  prevState = {
+    initWeight: 0,
+    desiredWeight: 0,
+    startDate: 0,
+    endDate: 0,
+  }
   counter = 0;
   handleInputChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
+
     })
   }
   componentDidMount() {
@@ -39,7 +46,9 @@ class Calculator extends React.Component {
       minStartDate: this.getCurrentDate(),
       minEndDate: this.getCurrentDate(),
 
+
     })
+
   }
   getCurrentDate = () => {
     const date = new Date();
@@ -51,11 +60,13 @@ class Calculator extends React.Component {
       this.setState({
         startDate: e.target.value,
         endDate: e.target.value,
-        minEndDate: e.target.value
+        minEndDate: e.target.value,
+
       })
     } else {
       this.setState({
-        endDate: e.target.value
+        endDate: e.target.value,
+
       })
     }
   }
@@ -71,6 +82,12 @@ class Calculator extends React.Component {
       error: false,
       result: false,
     })
+    this.prevState.initWeight = this.state.initWeight;
+    this.prevState.desiredWeight = this.state.desiredWeight;
+    this.prevState.height = this.state.height;
+    this.prevState.startDate = this.state.startDate;
+    this.prevState.endDate = this.state.endDate;
+
     const data = {
       initWeight: this.state.initWeight,
       desiredWeight: this.state.desiredWeight,
@@ -79,18 +96,26 @@ class Calculator extends React.Component {
       endDate: this.state.endDate,
     }
 
+
     if (data.initWeight === data.desiredWeight || data.startDate === data.endDate) {
       return this.setState({
         error: true,
       })
     }
-    const dateDifference = this.getDateDifference(data.startDate, data.endDate)
+
     return this.setState({
       result: true,
     })
   }
 
   render() {
+    const data = {
+      initWeight: this.prevState.initWeight,
+      desiredWeight: this.prevState.desiredWeight,
+      height: this.prevState.height,
+      startDate: this.prevState.startDate,
+      endDate: this.prevState.endDate,
+    }
     return (
       <div className="calculator">
         <Input name="initWeight" text="Initial weight" unit="kg" min={this.minAndMaxValues.weightMin} max={this.minAndMaxValues.weightMax} value={this.state.initWeight} onChange={this.handleInputChange} result={this.state.initWeight} />
@@ -101,7 +126,7 @@ class Calculator extends React.Component {
         <DateInput min={this.state.minEndDate} name="endDate" onChange={this.handleDateChange} value={this.state.endDate} title="Finish date:" />
         <Button onClick={this.count} />
         {this.state.error ? <Error /> : null}
-        {this.state.result ? <Result /> : null}
+        {this.state.result ? <Result data={data} /> : null}
       </div>
     );
   }
