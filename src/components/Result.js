@@ -1,5 +1,4 @@
 import React from 'react';
-
 const Result = (props) => {
   const { initWeight, desiredWeight, height, startDate, endDate } = props.data
 
@@ -18,15 +17,25 @@ const Result = (props) => {
     // console.log("ok")
     return (weight / days).toFixed(2)
   }
-  const result = initWeight - desiredWeight > 0 ? "loose" : "gain";
+  const getBMIDescription = BMI => {
+    if (BMI < 15) return "Very severely underweight";
+    if (BMI < 16) return "Severely underweight";
+    if (BMI < 18.5) return "Underweight";
+    if (BMI < 25) return "Normal";
+    if (BMI < 30) return "Overweight";
+    if (BMI < 35) return "Obese Class I";
+    if (BMI < 40) return "Obese Class II";
+    return "Obese Class III";
+  }
+  const result = initWeight - desiredWeight > 0 ? "lose" : "gain";
 
   return (
     <div>
-      <p>You want {result} {Math.abs(initWeight - desiredWeight)}kg</p>
-      <p>Your current BMI is {getBMI(initWeight, height)}</p>
-      <p>Your desired BMI is {getBMI(desiredWeight, height)}</p>
-      <p>You should {result} {changePerDay(Math.abs(initWeight - desiredWeight), getDateDifference(startDate, endDate))} kg per day</p>
-      {getDateDifference(startDate, endDate) >= 7 ? <p>You should {result} {changePerDay(Math.abs(initWeight - desiredWeight), (getDateDifference(startDate, endDate)) / 7)} kg per week</p> : null}
+      <p>You want {result} <span className="value_bold">{Math.abs(initWeight - desiredWeight)}</span> kg</p>
+      <p>Your current BMI is <span className="value_bold">{getBMI(initWeight, height)}</span> ({getBMIDescription(getBMI(initWeight, height))})</p>
+      <p>Your desired BMI is <span className="value_bold">{getBMI(desiredWeight, height)}</span> ({getBMIDescription(getBMI(desiredWeight, height))})</p>
+      <p>You should {result} <span className="value_bold">{changePerDay(Math.abs(initWeight - desiredWeight), getDateDifference(startDate, endDate))}</span> kg per day</p>
+      {getDateDifference(startDate, endDate) >= 7 ? <p>You should {result} <span className="value_bold">{changePerDay(Math.abs(initWeight - desiredWeight), (getDateDifference(startDate, endDate)) / 7)}</span> kg per week</p> : null}
     </div>
   );
 }
