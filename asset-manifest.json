@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/desired-weight-calculator/static/css/main.e3696972.chunk.css",
+    "main.js": "/desired-weight-calculator/static/js/main.92e7bc7f.chunk.js",
+    "main.js.map": "/desired-weight-calculator/static/js/main.92e7bc7f.chunk.js.map",
+    "runtime-main.js": "/desired-weight-calculator/static/js/runtime-main.f16c5cb5.js",
+    "runtime-main.js.map": "/desired-weight-calculator/static/js/runtime-main.f16c5cb5.js.map",
+    "static/js/2.87c4ae9e.chunk.js": "/desired-weight-calculator/static/js/2.87c4ae9e.chunk.js",
+    "static/js/2.87c4ae9e.chunk.js.map": "/desired-weight-calculator/static/js/2.87c4ae9e.chunk.js.map",
+    "index.html": "/desired-weight-calculator/index.html",
+    "precache-manifest.0a739c330bba551f64fc9e838ad09dcc.js": "/desired-weight-calculator/precache-manifest.0a739c330bba551f64fc9e838ad09dcc.js",
+    "service-worker.js": "/desired-weight-calculator/service-worker.js",
+    "static/css/main.e3696972.chunk.css.map": "/desired-weight-calculator/static/css/main.e3696972.chunk.css.map",
+    "static/js/2.87c4ae9e.chunk.js.LICENSE.txt": "/desired-weight-calculator/static/js/2.87c4ae9e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f16c5cb5.js",
+    "static/js/2.87c4ae9e.chunk.js",
+    "static/css/main.e3696972.chunk.css",
+    "static/js/main.92e7bc7f.chunk.js"
+  ]
+}
