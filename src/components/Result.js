@@ -1,4 +1,5 @@
 import React from 'react';
+import "./Result.css";
 const Result = (props) => {
   const { initWeight, desiredWeight, height, startDate, endDate } = props.data
 
@@ -30,7 +31,7 @@ const Result = (props) => {
   const result = initWeight - desiredWeight > 0 ? "lose" : "gain";
 
   return (
-    <div>
+    <div className="result_panel">
       <p>You want {result} <span className="value_bold">{Math.abs(initWeight - desiredWeight)}</span> kg</p>
       <p>Your current BMI is <span className="value_bold">{getBMI(initWeight, height)}</span> ({getBMIDescription(getBMI(initWeight, height))})</p>
       <p>Your desired BMI is <span className="value_bold">{getBMI(desiredWeight, height)}</span> ({getBMIDescription(getBMI(desiredWeight, height))})</p>
