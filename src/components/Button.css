@@ -13,5 +13,11 @@ div.button_form {
   font-weight: bold;
   letter-spacing: 1px;
   background-color: transparent;
-  border: 2px solid black;
+  border: 2px solid #696773;
+  transition: background-color .2s, border-color .2s, color .2s;
+}
+.button_form button:hover{
+  background-color: #819595;
+  border-color: #819595;
+  color: white;
 }
